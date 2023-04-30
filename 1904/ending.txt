@@ -1,0 +1,91 @@
+used=false;
+        //out = "win", "loss", or "tie" for your candidate
+        //totv = total votes in entire election
+        //aa = all final overall results data
+        //quickstats = relevant data on candidate performance (format: your candidate's electoral vote count, your candidate's popular vote share, your candidate's raw vote total)
+
+if(quickstats[0] == 476){
+    setInterval(function () {
+        while (used != true) {
+            imgg = document.getElementsByClassName("person_image")[0];
+            if (imgg != null) {
+                imgg.src = "https://i.imgur.com/uDUrLgn.png";
+            }
+            console.log("image set")
+            used = true;
+        
+        }
+    }, 100);
+    return "<h3>A figure from West Virginia who’s willing to be on your ticket</h3><p>Look at you, bigshot. Big manly man. Big burly hotshot typing letters into your keyboard like some ape. Big cheater is what you are. Touch some fucking grass.</p><p>You want an endscreen? Fuck you.</p>"
+} else if(quickstats[0] > 238 && campaignTrail_temp.player_answers[0] == 977){
+    return "<h3>Without your involvement, William Randolph Hearst has won the 1904 Presidential Election.</h3><span id='screen0' style='display: initial;'><p>Money talks. This is what “Hoist” found out in his solicitations to donors; a promise here, a blind eye there, and by the end of it, his campaign had secured enough funding to be truly competitive against Roosevelt. What’s more is that, surely to your irritation, a golden opportunity for victory arose late in the campaign when George Cortelyou was found to be blackmailing the trusts on the President’s behalf. In a surprising turnaround, William Randolph Hearst will now become the twenty-seventh President of the United States.</p><p>What aided Hearst beyond simply money and scandals was his outspoken demeanor; his penchant for speaking to the press, posing for photographs, and energy to stump all across the country -- all qualities you lacked. By the time the Republicans realized the threat he posed, Roosevelt had already spent the majority of the campaign at the White House.<br><br><button onclick='next0()'>More</button></p></span><span id='screen1' style='display: none;'><p>With the support of Tammany Hall and Bryan, who reluctantly backed this braggadocious businessman to keep faith with the party, Hearst was able to sweep New York and the plains, and win the ears of the common folk -- in no small part aided by his legion of newspapers.</p><p>This victory will come as a great relief to the progressive wing of the party, who were in danger of being marginalized after Bryan’s back-to-back defeats. What has been proven now is that the progressive message is effective, if only one has the funds to propagate it. Hearst will take office in March; as for you, it is likely that your political career is over before it even began, as the Democratic Party moves away from Gilded Age figures such as Cleveland and yourself. You will always have the Court of Appeals, however, if you wish to continue your work as one of the nation’s finest jurists.<br><br><button onclick='back0()'>Back</button></p></span>"
+} else if(quickstats[0] >= campaignTrail_temp.election_json[0].fields.winning_electoral_vote_number){
+    setInterval(function () {
+        while (used != true) {
+            imgg = document.getElementsByClassName("person_image")[0];
+            if (imgg != null) {
+                imgg.src = "https://i.imgur.com/snOiZrR.png";
+            }
+            console.log("image set")
+            used = true;
+        
+        }
+    }, 100);
+    return "<h3>By God! Against all odds, you have won the 1904 Presidential Election!</h3><span id='screen0' style='display: initial;'><p>What a stunning reversal from your position only two weeks ago! You have proved the doubters wrong, and in spite of your antiquated campaign, have managed to wrest away the key to office from the seemingly indomitable Roosevelt. This result is a great vindication for the reorganizer faction of the Democratic Party, as their efforts to wrench back control in August have finally paid off.</p><p>You would not be here if not for the good fortune of that last-minute breakthrough on the Cortelyou scandal, an affair which is certain to be investigated once you take office. Your victory is an electrifying rebuke of Republican militarism and imperialist ambition. Once more, the good nature of the American people has returned a Democrat to the office of the Presidency, and few men are of such incorruptible and worthy character for it as yourself.<br><br><button onclick='next0()'>More</button></p></span><span id='screen1' style='display: none;'><p>You will go from a mere judge on constitutional matters to the executive arbiter of the whole nation’s interests. What low profile kept you to obscurity will now give way to a fame greater than you could have ever imagined for yourself. Be aware that the Republicans remain firmly in control of both houses of Congress -- fortunately, a great deal of them come from their conservative wing, and should be amenable to your economic goals outside of tariff reform, most importantly your agenda for the Panama Canal.</p><p>Prepare to make the move from Rosemount to Washington. You have exceeded all expectations, saved yourself from historical obscurity, and secured four years in the White House to reverse the worst of Roosevelt’s iniquities. Your party salutes you, Judge Parker.<br><br><button onclick='back0()'>Back</button></p></span>"
+} else if(aa[0].electoral_votes < campaignTrail_temp.election_json[0].fields.winning_electoral_vote_number && aa[1].electoral_votes < campaignTrail_temp.election_json[0].fields.winning_electoral_vote_number && campaignTrail_temp.player_answers[0] != 977){
+    return "<h3>Beating every expectation, you have tied the 1904 Presidential Election.</h3><p>What an unexpected turnaround! While you will not become President, owing to the large Republican majorities in Congress, you have given Roosevelt a real run for his money in a year where you were written off to such an extent that he never bothered to campaign for the office at all. Even if the party has come up short, few ever expected that you might make it this far, and the result signals a return to prominence for the conservative Democrats who nominated you.</p><p>Bryan and his crowd will be seething to see you come so close to the reins of power, closer than he could ever manage in his past two runs. You have been given real momentum and a large boost in profile after sending the Presidential Election to the House for the first time since 1824. Now, as it was then, you may find it in your interests to run again in four years, as Democrats finally feel they have a candidate who can appeal to the broad majority of Americans. Should you desire it, a career in the House or Senate is surely viable to tide you over until 1908.</p>"
+} else if(quickstats[0] < campaignTrail_temp.election_json[0].fields.winning_electoral_vote_number && campaignTrail_temp.player_answers[0] == 977){
+    setInterval(function () {
+        while (used != true) {
+            imgg = document.getElementsByClassName("person_image")[0];
+            if (imgg != null) {
+                imgg.src = "https://i.imgur.com/vBlaaf6.png";
+            }
+            console.log("image set")
+            used = true;
+        
+        }
+    }, 100);
+    return "<h3>Theodore Roosevelt has defeated William Randolph Hearst in the 1904 Presidential Election.</h3><span id='screen0' style='display: initial;'><p>This did not come as a surprise to many, though Hearst put up a good fight. The issue of silver coinage has mostly been settled by now, making his bravado in denouncing gold rather headlong. He did benefit by the massive injection of cash from his personal wealth, but it was never going to be enough. When business saw a progressive heading the ticket again, the idea of a competitive election sent them to the Republican camp in a panic.</p><p>Bryan will be disappointed with this result, having fought hard to prevent the reorganizers from winning control of the party. Despite his flamboyance, recognition and fantastical wealth, Hearst only barely improved upon the results of four years ago. It is likely now that the Democrats will nominate a conservative in 1908, though it is not clear against whom that conservative shall run.<br><br><button onclick='next0()'>More</button></p></span><span id='screen1' style='display: none;'><p>Your brief foray into politics was a learning moment, a fun detour in your otherwise uninteresting public life. Given that you lost the nomination, you kept your seat on the Court of Appeals, and can look forward to spending the next part of your career continuing that good work. It is an interesting time to be an American -- what will be called the Gilded Age is fading away, and a new age prepares to take its place: it is up to you to determine what part you will play in it.<br><br><button onclick='back0()'>Back</button></p></span>"
+} else if(quickstats[0] < campaignTrail_temp.election_json[0].fields.winning_electoral_vote_number && quickstats[0] > 155){
+    setInterval(function () {
+        while (used != true) {
+            imgg = document.getElementsByClassName("person_image")[0];
+            if (imgg != null) {
+                imgg.src = "https://i.imgur.com/q03XEvP.png";
+            }
+            console.log("image set")
+            used = true;
+        
+        }
+    }, 100);
+    return "<h3>As expected, you have lost the 1904 Presidential Election.</h3><span id='screen0' style='display: initial;'><p>Despite murmurs of a last-minute comeback, it is now clear to all that Roosevelt never really faced any true challenge. Your understated profile and old-fashioned temperament was unsuitable to the age of strong personalities and sensational headlines. Roosevelt has defeated you, but you can take consolation that you overperformed Bryan’s previous margin, a fact sure to vindicate the conservatives who nominated you.</p><p>It was a sure thing that no Democrat was going to win while Theodore Roosevelt enjoyed the peak of his popularity. The nation can prepare to face four more years of imperialism, executive encroachment, and an administration beholden to the trusts it claims to oppose. Within the party, the stage is set for another showdown between its business and progressive wings, as Bryan will eagerly insist on nominating a liberal, possibly himself, to contest the next election.<br><br><button onclick='next0()'>More</button></p></span><span id='screen1' style='display: none;'><p>As for you, it is unlikely that you have any sort of future in politics. You can retire to Rosemount and prepare to continue your legal career -- if the conservatives aim for a comeback in 1908, they may call upon you, but it is far more probable that they will aim for a person with a higher profile. After all, the only reason you were nominated in the first place is that nobody else wanted it, in expectation of this result. You have boosted your profile somewhat, but it is doubtful you will be able to run much further than that.<br><br><button onclick='back0()'>Back</button></p></span>"
+} else if(quickstats[0] <= 155 && quickstats[0] > 0){
+    setInterval(function () {
+        while (used != true) {
+            imgg = document.getElementsByClassName("person_image")[0];
+            if (imgg != null) {
+                imgg.src = "https://i.imgur.com/q03XEvP.png";
+            }
+            console.log("image set")
+            used = true;
+        
+        }
+    }, 100);
+    return "<h3>As expected, you have lost the 1904 Presidential Election.</h3><span id='screen0' style='display: initial;'><p>Despite murmurs of a last-minute comeback, it is now clear to all that Roosevelt never really faced any true challenge. Your understated profile and old-fashioned temperament was unsuitable to the age of strong personalities and sensational headlines. Roosevelt has defeated you in every important state, as well as making inroads through the Solid South in carrying Missouri, Maryland, and West Virginia.</p><p>Your defeat is even worse than those suffered by Bryan in the past two elections, convincing progressives that the business interests who propped you up were truly as clueless as they thought. He is certain to take back control of the party in the next election. What is clear to most, in any case, is that no Democrat was going to win while Theodore Roosevelt enjoyed the peak of his popularity. The nation can prepare to face four more years of imperialism, executive encroachment, and an administration beholden to the trusts it claims to oppose.<br><br><button onclick='next0()'>More</button></p></span><span id='screen1' style='display: none;'><p>As for you, it is very unlikely that you have any sort of future in politics. You can retire to Rosemount and prepare to continue your legal career -- if the conservatives aim for a comeback in 1908, they will surely pass you over then just as they did this year, until no possible alternatives could have sufficed. With this result, you will go down as the most obscure candidate to ever contest the Presidency, and it is sad to say that history will not remember you.<br><br><button onclick='back0()'>Back</button></p></span>"
+} else if(quickstats[0] == 0){
+    setInterval(function () {
+        while (used != true) {
+            imgg = document.getElementsByClassName("person_image")[0];
+            if (imgg != null) {
+                imgg.src = "https://i.imgur.com/q03XEvP.png";
+            }
+            console.log("image set")
+            used = true;
+        
+        }
+    }, 100);
+    return "<h3>Congratulations. You lost every state.</h3><p>In a stunning rebuke of conservatism, the American people have full-heartedly embraced Roosevelt’s Square Deal policies and foreign imperialism. It is much to the dismay of the conservative wing of the Democrats that you have conducted a campaign so ineffectual that it produced the least competitive result since James Monroe’s second election -- the difference being that Monroe didn’t even have a competitor. The progressive wing has been emboldened, and are certain to seize control of the party at its next Convention in 1908.</p><p>Roosevelt will continue his unconstitutional policies of imperialism and overreach for at least another four years, and the scale of his victory may convince him yet to run for four more after. As for you, your career in politics is most certainly over. You have won for yourself the most ignominious label possible: the most brutal and crushing defeat in American history. Your name will go down as a footnote in textbooks to mark you with the only label fit for a man who fumbled the ball so much as yourself: <i>loser</i>.</p>"
+} else {
+    return "<p>well this broke</p><p>send information of this to /u/astrohunch_o immediately. this cannot show up on your screen</p>"
+}
