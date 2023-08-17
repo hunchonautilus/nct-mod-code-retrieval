@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <title>Bunnyhop: Introducing a Random-Order Question System for New Campaign Trail</title>
+    <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/microsoft/319/rabbit-face_1f430.png">
+    <style>
+        hr {
+            width: 700px;
+            color:#003049;
+        }
+
+        a:link, a:visited {
+            color:#003049;
+        }
+        html {
+            display: table;
+        }
+        #body {
+            font-family:serif;
+            margin-left:20%;
+            margin-right:20%;
+        }
+        code {
+            background-color:#f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div id="body">
+    <center>
+        <h1 style="margin-bottom:0.3em;">🐰 Bunnyhop 🐰</h1>
+        <h3>Introducing a Random-Order Question System for New Campaign Trail</h3>
+        <p style="text-align:left;">
+            One of the premier gameplay features that sets apart Dan Bryan’s original <a href="https://www.americanhistoryusa.com/campaign-trail/">Campaign Trail</a> from New Campaign Trail is the randomness present with every game; of however many questions, you get 25, and a selection that changes each time. Due to the way New Campaign Trail works, this functionality was lost, and thus a dimension was removed from any mod or scenario’s gameplay potential. This changes today. I have created a system called “Bunnyhop” that allows for client-side loading of random-order questions in the simplest manner possible, and thus easiest to implement and seamless when in use. There’s no complicated CYOA, no crazy schemes to pull this off; despite this, I expect it to be totally revolutionary, and I’ll explain every part of how and why it works.
+        </p>
+        <p style="text-align:left;">
+            <b>But first: how did Dan Bryan do it?</b><br>Dan Bryan relied on server-side shenanigans to give every game its own Code 2 with random-ordered questions. To load the Code 2, the game sends a request for a specific election, with specific candidates, opponents, difficulty etc. and then the server loads the relevant portions by game request. As part of this, the game chooses a set of questions based on priority, i.e. priority 1 for the first question, going upwards and often in multiple-question chunks, or in negative numbers toward the end of the question set, and loads the relevant answers, effects, and feedback.
+        </p>
+        <p style="text-align:left;">
+            <b>Why doesn’t this work for NCT? How has this affected mods?</b><br>The reason this doesn’t work in New Campaign Trail is that it does not rely on a server; instead all the codes are fixed and loaded client-side. Emphasis on ‘fixed’; the questions are the same every time. Now, this is better for ease of modification, sure; even I would be hard-pressed having to do the same sort of hookups Dan Bryan would have to do server-side when implementing a new scenario. But it also eliminates the variance in questions that helps make every playthrough fresh, and keeps people playing to get an optimal question set.
+        </p>
+        <p style="text-align:left;">
+            Now, many modmen will end up finding the same issue as Dan Bryan -- that being that you will generally need more than 25 questions to properly convey a proper number of issues on the average presidential campaign. So plenty of mods end up being above this mark, generally from 30-35 questions. Many of the original scenarios also are like this, but they only give the player 25 at a time. Naturally, this disadvantages mods on the front of replayability, so it’s easy to see why modmen have shifted toward a more narrative strategy (see my blog post on this <a href="https://blog.newcampaigntrail.com/side_bl/liam/reader/#9">here</a>).
+        </p>
+        <p style="text-align:left;">
+            Campaign Trail was designed as an educational game; removed from that purpose, people see it as chronological and act accordingly. But as I stated previously, I still find great value in gameplay-oriented mods, but modmen need the tools to advance on that front in the same way stuff like novel CYOA mechanics helps advance narrative mods. That tool is here today.
+        </p>
+        <p style="text-align:left;">
+            <b>How does Bunnyhop work?</b><br>Glad you asked! To understand how it manages random-ordered questions purely in the client, you need a basic understanding of how the Campaign Trail engine sorts through the question/answer portions of the Code 2. Here’s a diagram:</p>
+        <figure><img src="1.png" style="height:400px;"></figure>
+        <p style="text-align:left;">
+            The various questions are linked to by answers that the various effects and feedback link to. The onr thing you need to grasp to understand how Bunnyhop works is that <i>only</i> the answers need to be linked to a specific question pk value for your game to function. It is by taking advantage of this simple fact, as well as the general malleability of TCT ‘code’ that the entire idea of modding is based off of, that random-order questions can be implemented completely client-side.</p>
+        <p style="text-align:left;">
+            <i>All answers, effects, etc are left intact.</i> So are questions that are fixed to a specific spot, at discretion of the modman. Bunnyhop touches absolutely none of that. Everything else is left up to chance. Spots can be set aside for randomization, with fully functioning question code but any kind of junk text and pk value. However many questions that are left up to Bunnyhop at one time can be three, five, etc. I’d advise against shuffling basically everything, but it could still be done (do you really want your mod to play like 2012 though?).</p>
+        <p style="text-align:left;">
+            After the question json is defined, the process starts by creating 2D array(s) with set(s) of questions greater than or equal in length to the number of spots set aside for randomization. If you have little to no programming experience (true of most TCT coders unfortunately) and don’t know what this is, think of an array as a list, and then a 2D array as a list of lists; in this case, each item contains a question pk and the question text, nothing else. Then these arrays are passed through a function which shuffles these list(s), and then another function takes a specific number of questions off the top of the list(s) and transplants them directly into the code; of course, this is possible because Code 2 data is stored as a JSON, and thus can be directly edited item-by-item. I have another diagram here to illustrate the process:
+        </p>
+        <figure><img src="2.png" style="width:800px;"></figure>
+        <p style="text-align:left;">How does the actual code look? Here’s how I did it in the first demo implementation of Bunnyhop I ever created, labeled to make it easier to understand:</p>
+        <figure><img src="3.png" style="width:800px;"></figure>
+        <p style="text-align:left;">
+            This is about as simple as can be. There’s no CYOA to disentangle, no hieroglyphics to interpret, no quantum equations to solve. No redundance, all function; that’s how it should be. It only gets executed after the <i>questions</i> are defined, not even the answers, because the whole idea is that it leaves all the answers and their effects there, to be activated by random in-game.
+        </p>
+        <p style="text-align:left;">
+            <b>Didn’t understand any of that, ELI5, TLDR?</b><br>Bunnyhop gives modmen the ability to implement random-order questions by setting aside specific question slots where a number of many possible questions are placed in at random, in the simplest possible manner that affects as little of the mod code as possible while being fully functional. <i>It works like magic.</i>
+        </p>
+        <p style="text-align:left;">
+            <b>Does CYOA still work?</b><br>Yes. The way the game looks for an answer coming in (to run any relevant code in the CYOA function) does not break with random-ordered questions. I have tested this myself.
+        </p>
+        <p style="text-align:left;">
+            In fact, modifying the techniques used in Bunnyhop can make CYOA question tunneling significantly easier. You no longer have to create a plethora of extra out-of-bounds questions and figure out how to shuffle out one or the other; you can just modify a question’s values to completely change them out. You can even make arrays for a set of questions if need be! (i.e. Midnight 64) It’s a hundred times easier.
+        </p>
+        <p style="text-align:left;">
+            <b>Does anything else break?</b><br>Only one thing I can think of. Specific answer parameters in endings are tied to player answers at specific indices, i.e. in a fixed spot like <code>campaignTrail_temp.player_answers[20] == 2001</code> or something. If you’re doing this for a random-ordered question it will not work. Instead use <code>campaignTrail_temp.player_answers.includes(2001)</code>. Or just use it regardless, because it is simpler overall and harder to break. You can even combine multiple answer parameters into one with further boolean logic like <code>includes(2001 && 2005 && 2010)</code>.
+        </p>
+        <p style="text-align:left;">
+            <b>When can I see this in action?</b><br>Today. Powell ’96 is also getting an update that fully implements Bunnyhop, with some other tidy work on some of the writing. I’ve put the codes up on my portfolio, which you should be able to access by clicking the link right below this. But I’ve also elected to put it up on <a href="https://campaign-trail-showcase.github.io" target="_blank">Campaign Trail Showcase</a> exclusively for <i>one day</i>, so that you all can go back to the original on NCT and see how much of a difference maker this really is <i>(before the new and improved version inevitably makes it there too; believe me when I say I’m neutral on this new ‘console war’ thing)</i>. And if you want to see it in a brand new mod, there are a few coming soon planned from the ground up for Bunnyhop.</p><p style="text-align:left;">I’ll also assist different modmen who may wish to use it in implementing it if needed. Some advice: Bunnyhop wasn’t made to be something to retroactively put in every old mod, nor was it made for every new mod. Some simply were/are/will made to be sequential, but there are undoubtedly a great deal that benefit from the extra dimension Bunnyhop offers. As far as credit goes, I’ve come up with something you can add to your mod’s credits to fulfill just that, an addition that links to this very page. I’m really excited for this overall, and I think it’ll open up many new possibilities in Campaign Trail modding.
+        </p>
+        <p style="text-align:left;"><b>~ liquid astro</b></p>
+        <hr style="border: dotted 1px;border-left:0px;border-right:0px;background-color:transparent;">
+        <p><a href="../index.html">Back to Home</a></p>
+    </center>
+    </div>
+</body>
