@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>It's that time of the year again</title>
-        <style>html, body {
-            width:100%;
-            height:100%;
-            position:relative;
-            font-family:'Courier New', Courier, monospace;
-            margin:0;
-        }
-        #wrap {
-                color: #232323;
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-                position:relative;
-                flex-wrap:wrap;
-                margin:1px;
+        <title>2004 Sundance | TCT Codes</title>
+        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <style>
+            hr {
+                width: 700px;
+                color:#003049;
             }
-        </style>
-        <meta name="robots" content="noindex">
-        <meta name="robots" content="nofollow">
+
+            a:link, a:visited {
+                color:#003049;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            html {
+                display: table;
+            }
+            body {
+                display: table-cell;
+                vertical-align: middle;
+                font-family:serif;
+            }
+    </style>
     </head>
     <body>
-        <!--
-       (_)
-        <___>
-         | |______
-         | |* * * )
-         | | * * (_________
-         | |* * * |* *|####)
-         | | * * *| * |   (________________
-         | |* * * |* *|####|##############|
-         | | * * *| * |    |              |
-         | |* * * |* *|####|##############|
-         | |~~~~~~| * |    |              |
-         | |######|* *|####|##############|
-         | |      |~~~'    |              |
-         | |######|########|##############|
-         | |      |        |              |
-         | |######|########|##############|
-         | |~~~~~~|        |              |
-         | |      |########|##############|
-         | |      '~~~~~~~~|              |
-         | |               |##############|
-         | |               '~~~~~~~~~~~~~~~
-         | |
-         | |
-         | |
-         And you're here at the right time
-         -->
-         <a href="https://www.twitch.tv/itsastronomics" style="margin:0;"><img style="width:100%;height:calc(100% - 5px);object-fit:contain;" src="releasepromo.png" alt="2004 Sundance World Premiere Sep. 06 7PM E"></a>
+        <div id="body">
+            <center>
+                <img src="banner.png" style="width:300px;">
+                <h1 style="margin-bottom:0.3em;">2004 Sundance</h1>
+                <p>by /u/astrohunch_o, /u/StockdaleforTCT, and /u/neo1013</p>
         
+                <hr style="border: dotted 1px;border-left:0px;border-right:0px;background-color:transparent;">
+        <p><span style="background-color:yellow"><b>JUST FOR TODAY</span>: Available exclusively on <a href="https://campaigntrailshowcase.com/campaign-trail/?modName=2004Sundance" target="_blank">Campaign Trail Showcase</a> (codes also below)</b></p>
+                <hr>
+                <table>
+                    <tbody>
+                        <tr style="padding-top:0%">
+                            <td></td>
+                            <td style="padding:0%">
+                                <center><h2 style="font-variant-caps:small-caps;margin-bottom:0px;">Gore</h2></center>
+                            </td>
+                            <td style="padding:0%">
+                                <center><h2 style="font-variant-caps:small-caps;margin-bottom:0px;">Giuliani</h2></center>
+                            </td>
+                        </tr>
+                        <tr style="padding-top:0%">
+                            
+                            <td>
+                                <center><h3>Code 1</h3></center>
+                                <iframe src="code 1.txt" height="241" width="300" title="Code 1"></iframe>
+                            </td>
+                            <td>
+                                <center><h3>Code 2</h3><iframe src="code 2 gore-lieberman.txt" height="241" width="300" title="Code 2"></iframe>
+                            </td>
+                            <td>
+                                <center><h3>Code 2</h3><iframe src="code 2 giuliani-santorum.txt" id="c2" height="201" width="300" title="Code 2"></iframe><br><hr style="width:100%;border-style:dotted;"><div style='font-size:0.75em'><input type="radio" name="rm" value="rm0" checked="" onchange="cs()"><label for="rm0">Santorum</label><input type="radio" name="rm" value="rm1" onchange="cf()"><label for="rm1">Frist</label><input type="radio" name="rm" value="rm2" onchange="ch()"><label for="rm2">Hatch</label><input type="radio" name="rm" value="rm3" onchange="cw()"><label for="rm3">Watts</label></div></center>
+                            </td>
+                        </tr>
+                        <caption><i><small>Select all and copy within each box containing the code you wish to copy. Then, paste into the corresponding boxes provided in the 'Other' section under the Mod Loader. Alternatively, on the <a href="https://americanhistoryusa.com/campaign-trail" target="_blank">old Campaign Trail site</a>, paste Code 1 first into the Console, then paste Code 2 upon loading the game (note: plenty of functionality will be missing).</small></i></caption>
+                    </tbody>
+                </table>
+                <hr style="border: dotted 1px;border-left:0px;border-right:0px;background-color:transparent;">
+                <p><b>More in the world of Sundance:</b> <a href="beck.html">Imagining a Bush victory</a> | <a href="elephant.html">Examining the Republican field</a></p>
+                <hr>
+                <p><small>Custom TCT code retrieval system 1.0<br>created by <a href="https://www.reddit.com/user/astrohunch_o" target="_blank">/u/astrohunch_o</a></small></p>
+            </center>
+            </div>
+        
+            <script>
+                cs = function() {
+                    document.getElementById("c2").src = "code 2 giuliani-santorum.txt";
+                }
+        
+                cf = function() {
+                    document.getElementById("c2").src = "code 2 giuliani-frist.txt";
+                }
+        
+                ch = function() {
+                    document.getElementById("c2").src = "code 2 giuliani-hatch.txt";
+                }
+
+                cw = function() {
+                    document.getElementById("c2").src = "code 2 giuliani-watts.txt";
+                }
+            </script>
     </body>
 </html>
