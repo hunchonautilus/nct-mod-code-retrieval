@@ -40,5 +40,5 @@ campaignTrail_temp.modBoxTheme = {
     "secondary_color": "#a35b37",
     "ui_text_color": "#FFFFFF"
 }
-
+RecReading=true
 
